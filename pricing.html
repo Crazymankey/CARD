@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>服務方案與報價 | Productized Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #f8fafc;
+      font-family: system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+    }
+    .glass-card {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+    .popular-border {
+      border: 2px solid #38bdf8;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+    }
+  </style>
+</head>
+<body class="py-12 px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
+  <div class="max-w-6xl mx-auto w-full">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <span class="text-sky-400 font-semibold text-sm tracking-wider uppercase">透明客製化方案</span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">產品化服務方案與報價</h1>
+      <p class="text-slate-400 max-w-2xl mx-auto text-base">
+        為您的實體門市與工作室提供「快速上線、自動化排程、直覺管理」的數位解決方案。
+      </p>
+    </div>
+
+    <!-- Pricing Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+      
+      <!-- 方案 1: 輕量門面包 -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-bold text-white mb-2">輕量門面包</h3>
+          <p class="text-slate-400 text-sm mb-4">適合剛創業、單純需要展示菜單或服務說明的門市/工作室。</p>
+          <div class="my-4">
+            <span class="text-3xl font-extrabold text-white">NT$ 3,800</span>
+            <span class="text-slate-400 text-sm"> 起</span>
+          </div>
+          <ul class="text-slate-300 text-sm space-y-3 mb-6">
+            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> RWD 手機響應式形象頁面</li>
+            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> 動態菜單 / 服務價目表展示</li>
+            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> 整合 Google 地圖與社群連結</li>
+            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> 製作時間：2 ~ 3 天即可上線</li>
+          </ul>
+        </div>
+        <a href="https://line.me/ti/p/~0983306877" target="_blank" class="w-full text-center py-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-medium transition">諮詢此方案</a>
+      </div>
+
+      <!-- 方案 2: 自動化預約包 (Popular) -->
+      <div class="glass-card popular-border rounded-2xl p-6 flex flex-col justify-between relative bg-slate-800/80">
+        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-sky-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+          最受店家歡迎 🔥
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-white mb-2 mt-2">自動化預約 / 訂購包</h3>
+          <p class="text-slate-400 text-sm mb-4">適合美業、預約制餐廳、個人教練，省去人工對話與確認時間。</p>
+          <div class="my-4">
+            <span class="text-3xl font-extrabold text-sky-400">NT$ 9,800</span>
+            <span class="text-slate-400 text-sm"> ~ 15,800</span>
+          </div>
+          <ul class="text-slate-300 text-sm space-y-3 mb-6">
+            <li class="flex items-center"><span class="text-sky-400 mr-2">✓</span> 包含輕量門面包所有內容</li>
+            <li class="flex items-center"><span class="text-sky-400 mr-2">✓</span> <strong>LINE 機器人 / 自動化即時通知</strong></li>
+            <li class="flex items-center"><span class="text-sky-400 mr-2">✓</span> <strong>Google Calendar 日曆行程自動同步</strong></li>
+            <li class="flex items-center"><span class="text-sky-400 mr-2">✓</span> 直覺式 Google Sheets 後台自行改檔</li>
+            <li class="flex items-center"><span class="text-sky-400 mr-2">✓</span> 製作時間：3 ~ 5 天快速交付</li>
+          </ul>
+        </div>
+        <a href="https://line.me/ti/p/~0983306877" target="_blank" class="w-full text-center py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-bold shadow-lg transition">立即諮詢此方案</a>
+      </div>
+
+      <!-- 方案 3: 全套客製包 -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-bold text-white mb-2">全套客製與整合包</h3>
+          <p class="text-slate-400 text-sm mb-4">適合有特殊功能計算、多分店或需要深度視覺客製的品牌。</p>
+          <div class="my-4">
+            <span class="text-3xl font-extrabold text-white">NT$ 18,000</span>
+            <span class="text-slate-400 text-sm"> 起</span>
+          </div>
+          <ul class="text-slate-300 text-sm space-y-3 mb-6">
+            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> 包含自動預約包所有內容</li>
+            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> 客製化 UI/UX 視覺設計與專屬微動畫</li>
+            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> 第三方功能整合（飲控試算/知識庫等）</li>
+            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> 1 對 1 操作教學與 30 天保固服務</li>
+          </ul>
+        </div>
+        <a href="https://line.me/ti/p/~0983306877" target="_blank" class="w-full text-center py-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-medium transition">諮詢此方案</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="text-center text-slate-500 text-xs mt-12">
+    © Digital Card & Automation Services. All rights reserved.
+  </div>
+</body>
+</html>
