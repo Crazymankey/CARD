@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>李苙僑 ｜ 水產全能 · 數位名片</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e2a35; --tide:#1d6b76; --foam:#edf4f3; --card:#fff;
+  --coral:#e4624b; --line:#cfdedd; --muted:#4f6a70;
+  --serif:"Noto Serif TC","Songti TC",serif; --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--ink:#e8f2f1; --tide:#6cc3cc; --foam:#0b1e26; --card:#12303b; --line:#24505c; --muted:#9db9bd}
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--foam);color:var(--ink);line-height:1.8}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h2{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:14px}
+.hero{background:var(--ink);color:#edf4f3;padding:96px 0 80px}
+.hero small{color:#9cc9cd;letter-spacing:.08em}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(3rem,12vw,6rem);line-height:1.1;margin:10px 0 14px}
+.hero p{max-width:34em;color:#c9dcdd}
+.btn{display:inline-block;margin-top:28px;padding:12px 28px;background:var(--coral);color:#fff;border-radius:999px;font-weight:700}
+.btn:hover{filter:brightness(1.08)}
+.about p{max-width:38em;margin-bottom:12px;color:var(--muted)}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:28px}
+.pillar{border-left:4px solid var(--tide);padding:4px 0 4px 16px}
+.pillar h3{font-size:1.05rem}.pillar p{font-size:.92rem;color:var(--muted)}
+/* 作品集 */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 0 14px;margin-top:20px;scrollbar-width:thin}
+.tab{flex:none;font:inherit;font-weight:500;cursor:pointer;padding:10px 18px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);transition:background .2s,color .2s}
+.tab small{display:block;font-size:.72rem;opacity:.7;line-height:1.3}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--foam);border-color:var(--ink)}
+.panel-intro{color:var(--muted);margin:6px 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.grid.swap{animation:swap .35s ease}
+@keyframes swap{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.work{display:flex;flex-direction:column;gap:6px;padding:20px;background:var(--card);border:1px solid var(--line);border-radius:16px;transition:transform .2s,border-color .2s}
+.work:hover{transform:translateY(-4px);border-color:var(--tide)}
+.work b{font-family:var(--serif);font-size:1.12rem}
+.work span{font-size:.9rem;color:var(--muted);flex:1}
+.work em{font-style:normal;font-weight:700;color:var(--coral);font-size:.9rem;margin-top:6px}
+/* 聯絡 */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px}
+.contact a{display:block;padding:20px;border-radius:16px;background:var(--ink);color:var(--foam)}
+.contact a small{display:block;opacity:.7}
+.contact a:hover{background:var(--tide)}
+footer{text-align:center;padding:28px 20px;color:var(--muted);font-size:.85rem}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <small>水產產業 · 數位名片</small>
+    <h1>李苙僑</h1>
+    <p>在水產產業工作，也喜歡把在乎的人事物，用一支網頁好好說一次。</p>
+    <a class="btn" href="#portfolio">查看作品</a>
+  </div>
+</header>
+
+<section class="about">
+  <div class="wrap">
+    <h2>水產專業 × 用心生活</h2>
+    <p>我是李苙僑，在水產產業工作，對海鮮的挑選、進出貨與品質把關累積了一些實務經驗。</p>
+    <p>工作之餘，我也把網頁當成工具：門市的補貨、菜單、預約，到重要日子的賀卡，都能做成一支打開就能用的頁面。</p>
+    <div class="pillars">
+      <div class="pillar"><h3>水產實務經驗</h3><p>從採購、進出貨到品質把關，累積了一些踏實的產業經驗。</p></div>
+      <div class="pillar"><h3>用心的網頁設計</h3><p>用簡單純粹的技術，做出有溫度、能讓人記住的作品。</p></div>
+      <div class="pillar"><h3>把心意做成畫面</h3><p>每個委託背後都是一份真實的情感，用心對待，才做得出好作品。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="wrap">
+    <h2>作品集</h2>
+    <p class="panel-intro" style="margin-top:0">共 13 個作品，依應用情境分成四類，點選分類切換。</p>
+    <div class="tabs" role="tablist" aria-label="作品分類" id="tabs"></div>
+    <p class="panel-intro" id="intro"></p>
+    <div class="grid" id="grid" role="tabpanel" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>找到我，聊聊看</h2>
+    <div class="contact-grid">
+      <a href="https://line.me/ti/p/~0983306877" target="_blank" rel="noopener"><small>加我 LINE</small><b>0983306877</b></a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=apeter321w@gmail.com" target="_blank" rel="noopener"><small>寄信給我</small><b>apeter321w@gmail.com</b></a>
+    </div>
+  </div>
+</section>
+
+<footer>李苙僑 · 水產全能 · Digital Card</footer>
+
+<script>
+const B = "https://crazymankey.github.io/";
+const modules = [
+  { name:"餐飲與實體門市", sub:"數位化", intro:"讓門市的補貨、菜單與開店祝福，都有一支能直接使用的網頁。", items:[
+    ["海龍星冷凍食品","LS/","冷凍食品公司的一頁式網站，呈現老闆、主打產品、聯絡方式與地址。"],
+    ["每日補貨清單","Drink/","Line 自動化補貨系統，店員填單後自動通知並記錄。"],
+    ["三餐超省密技","Food/","NT$200 內的三餐規劃器，提供外食與備餐兩種方案。"],
+    ["飲料店祝賀生意興隆","eric/","獻給飲料店老闆的開店祝福頁面。"],
+    ["隨手改的菜單","RICE/","輕量化的線上菜單，品項與價格隨時能更新。"] ]},
+  { name:"美業與個人工作室", sub:"品牌展示", intro:"把服務項目、作品與預約資訊整理成客人一看就懂的頁面。", items:[
+    ["老婆美甲工作室","Shin/","展示作品、方便詢問接單的工作室官網。"],
+    ["美學店","lady/","為美學店打造的品牌頁面，清楚列出服務項目。"],
+    ["SPA 療程","NEW/","SPA 療程與服務內容的展示頁面。"] ]},
+  { name:"企業與個人客製賀卡", sub:"節慶互動", intro:"在重要的日子，做一支只屬於對方的網頁賀卡。", items:[
+    ["黃總生日賀卡","YAHUA/","送給公司老闆的生日驚喜賀卡。"],
+    ["小布姐生日賀卡","SS/","為壽星客製的生日網頁賀卡。"],
+    ["小姐姐生日賀卡","SH/","為壽星客製的生日網頁賀卡。"] ]},
+  { name:"個人品牌與知識庫", sub:"想法整理", intro:"把自己的經歷與體悟，整理成一頁能慢慢讀的內容。", items:[
+    ["個人心路歷程","AI-Reading/","紀錄這段時間的心路歷程。"],
+    ["成功的條件","LiChiao/","寫下對成功條件的想法與體悟。"] ]}
+];
+const tabs = document.getElementById("tabs"), grid = document.getElementById("grid"), intro = document.getElementById("intro");
+function show(i, focus){
+  const m = modules[i];
+  [...tabs.children].forEach((t,k)=>{ t.setAttribute("aria-selected", k===i); t.tabIndex = k===i?0:-1; if(focus&&k===i) t.focus(); });
+  intro.textContent = m.intro;
+  grid.innerHTML = m.items.map(([n,p,d])=>
+    `<a class="work" href="${B+p}" target="_blank" rel="noopener"><b>${n}</b><span>${d}</span><em>前往查看</em></a>`).join("");
+  grid.classList.remove("swap"); void grid.offsetWidth; grid.classList.add("swap");
+}
+modules.forEach((m,i)=>{
+  const t = document.createElement("button");
+  t.className = "tab"; t.setAttribute("role","tab");
+  t.innerHTML = `${m.name}<small>${m.sub} · ${m.items.length} 件</small>`;
+  t.onclick = ()=>show(i);
+  t.onkeydown = e=>{
+    if(e.key==="ArrowRight") show((i+1)%modules.length,true);
+    if(e.key==="ArrowLeft") show((i+modules.length-1)%modules.length,true);
+  };
+  tabs.appendChild(t);
+});
+show(0);
+</script>
+</body>
+</html>
