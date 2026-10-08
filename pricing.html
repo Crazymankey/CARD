@@ -1,115 +1,389 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>服務方案與報價 | Productized Services</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #f8fafc;
-      font-family: system-ui, -apple-system, sans-serif;
-      min-height: 100vh;
-    }
-    .glass-card {
-      background: rgba(30, 41, 59, 0.7);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-    }
-    .glass-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(56, 189, 248, 0.4);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-    }
-    .popular-border {
-      border: 2px solid #38bdf8;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <!-- 規範 1：使用 viewport meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AaaS 自動化服務與技能報價矩陣</title>
+    <style>
+        /* 全局變數與重置 */
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --accent-hover: #0284c7;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --border-color: #334155;
+            --popular-border: #38bdf8;
+            --badge-bg: #0284c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            /* 規範 4：手機版字體大小至少 16px */
+            font-size: 16px;
+            line-height: 1.6;
+            padding: 24px 16px;
+        }
+
+        /* 規範 3：圖片與多媒體 max-width */
+        img, svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        header p {
+            color: var(--text-sub);
+            font-size: 1rem;
+        }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 24px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* 規範 2：使用 Flexbox / Grid 排版 */
+        /* 手機版預設：單欄 Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .card.popular {
+            border: 2px solid var(--popular-border);
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background-color: var(--badge-bg);
+            color: #fff;
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .card-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .card-header p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .price-box {
+            margin-bottom: 20px;
+            background-color: rgba(15, 23, 42, 0.5);
+            padding: 12px 16px;
+            border-radius: 8px;
+        }
+
+        .price-main {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .price-sub {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* 規範 5：按鈕/連結點擊區域手機版至少 44x44px */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            min-width: 44px;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: var(--accent-color);
+            color: #0f172a;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            color: #fff;
+        }
+
+        /* 加價模組與表單樣式 */
+        .addons-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .addon-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .addon-title {
+            font-weight: bold;
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
+
+        .addon-price {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .addon-desc {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        /* 規範 6：響應式斷點設定 */
+        /* 平板尺寸 (768px 及以上) */
+        @media (min-width: 768px) {
+            body {
+                padding: 40px 24px;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .addons-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* 桌面尺寸 (1024px 及以上) */
+        @media (min-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
 </head>
-<body class="py-12 px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
-  <div class="max-w-6xl mx-auto w-full">
-    <!-- Header -->
-    <div class="text-center mb-12">
-      <span class="text-sky-400 font-semibold text-sm tracking-wider uppercase">透明客製化方案</span>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">產品化服務方案與報價</h1>
-      <p class="text-slate-400 max-w-2xl mx-auto text-base">
-        為您的實體門市與工作室提供「快速上線、自動化排程、直覺管理」的數位解決方案。
-      </p>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>AaaS 自動化服務與技能報價矩陣</h1>
+            <p>透明計價・穩定託管・高效自動化解決方案</p>
+        </header>
+
+        <!-- 區塊一：核心訂閱包套 -->
+        <section>
+            <h2 class="section-title">核心訂閱方案 (AaaS)</h2>
+            <div class="pricing-grid">
+                
+                <!-- 極速入門版 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>極速入門版</h3>
+                        <p>適合單店 / 個人工作室</p>
+                    </div>
+                    <div class="price-box">
+                        <div class="price-main">NT$ 3,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div>
+                        <div class="price-sub">+ NT$ 599 / 月託管費</div>
+                    </div>
+                    <ul class="feature-list">
+                        <li>1 個核心自動化工作流</li>
+                        <li>庫存低於門檻 LINE 自動預警</li>
+                        <li>Google 試算表結構整理與串接</li>
+                        <li>基礎 LINE Notify / Bot 通知</li>
+                    </ul>
+                    <a href="https://line.me/ti/p/~0983306877" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
+                </div>
+
+                <!-- 標準商業版 (主推) -->
+                <div class="card popular">
+                    <div class="badge">最受歡迎</div>
+                    <div class="card-header">
+                        <h3>標準商業版</h3>
+                        <p>適合多分店 / 小型企業</p>
+                    </div>
+                    <div class="price-box">
+                        <div class="price-main">NT$ 8,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div>
+                        <div class="price-sub">+ NT$ 899 / 月託管費</div>
+                    </div>
+                    <ul class="feature-list">
+                        <li>多門市 / 多欄位條件邏輯判斷</li>
+                        <li>自動數據輪詢與定時檢查</li>
+                        <li>多頻道 / 指定 LINE 群組推播</li>
+                        <li>每週自動備份與數據整理</li>
+                        <li>含每月 1 次邏輯小幅微調</li>
+                    </ul>
+                    <a href="https://line.me/ti/p/~0983306877" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
+                </div>
+
+                <!-- 旗艦企業版 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>旗艦企業版</h3>
+                        <p>中小型連鎖品牌 / 高頻需求</p>
+                    </div>
+                    <div class="price-box">
+                        <div class="price-main">NT$ 18,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div>
+                        <div class="price-sub">+ NT$ 1,499 / 月託管費</div>
+                    </div>
+                    <ul class="feature-list">
+                        <li>雙向操作 (LINE 按鈕互動回傳 Sheet)</li>
+                        <li>高頻率檢測與多系統整合</li>
+                        <li>跨系統串接 (ERP / POS / Email)</li>
+                        <li>專屬高效能 n8n 主機獨立託管</li>
+                        <li>優先技術支援與排查</li>
+                    </ul>
+                    <a href="https://line.me/ti/p/~0983306877" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 區塊二：單項加價模組 -->
+        <section>
+            <h2 class="section-title">單項技能與客製模組 (Add-ons)</h2>
+            <div class="addons-grid">
+                
+                <div class="addon-item">
+                    <div class="addon-title">單一 API 模組串接</div>
+                    <div class="addon-price">NT$ 2,500 ~ 4,000 / 個</div>
+                    <div class="addon-desc">如：LINE Messaging API, Gmail, Google Sheets 獨立擴充與整合。</div>
+                </div>
+
+                <div class="addon-item">
+                    <div class="addon-title">進階 API / 爬蟲串接</div>
+                    <div class="addon-price">NT$ 5,000 ~ 8,000 / 個</div>
+                    <div class="addon-desc">需複雜身份認證、權限繞過或解析非結構化 JSON 數據。</div>
+                </div>
+
+                <div class="addon-item">
+                    <div class="addon-title">LINE Flex Message 卡片設計</div>
+                    <div class="addon-price">NT$ 3,500 ~ 6,000 / 套</div>
+                    <div class="addon-desc">客製化互動式 Rich Message 選單與後台 n8n 資料動態綁定。</div>
+                </div>
+
+                <div class="addon-item">
+                    <div class="addon-title">單頁式商業展示頁 (Landing Page)</div>
+                    <div class="addon-price">NT$ 6,000 ~ 12,000 / 頁</div>
+                    <div class="addon-desc">含文案包裝、響應式 RWD 網頁設計與 GitHub/Vercel 免費部署。</div>
+                </div>
+
+            </div>
+        </section>
     </div>
 
-    <!-- Pricing Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-      
-      <!-- 方案 1: 輕量門面包 -->
-      <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
-        <div>
-          <h3 class="text-xl font-bold text-white mb-2">輕量門面包</h3>
-          <p class="text-slate-400 text-sm mb-4">適合剛創業、單純需要展示菜單或服務說明的門市/工作室。</p>
-          <div class="my-4">
-            <span class="text-3xl font-extrabold text-white">NT$ 3,800</span>
-            <span class="text-slate-400 text-sm"> 起</span>
-          </div>
-          <ul class="text-slate-300 text-sm space-y-3 mb-6">
-            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> RWD 手機響應式形象頁面</li>
-            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> 動態菜單 / 服務價目表展示</li>
-            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> 整合 Google 地圖與社群連結</li>
-            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> 製作時間：2 ~ 3 天即可上線</li>
-          </ul>
-        </div>
-        <a href="https://line.me/ti/p/~0983306877" target="_blank" class="w-full text-center py-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-medium transition">諮詢此方案</a>
-      </div>
-
-      <!-- 方案 2: 自動化預約包 (Popular) -->
-      <div class="glass-card popular-border rounded-2xl p-6 flex flex-col justify-between relative bg-slate-800/80">
-        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-sky-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-          最受店家歡迎 🔥
-        </div>
-        <div>
-          <h3 class="text-xl font-bold text-white mb-2 mt-2">自動化預約 / 訂購包</h3>
-          <p class="text-slate-400 text-sm mb-4">適合美業、預約制餐廳、個人教練，省去人工對話與確認時間。</p>
-          <div class="my-4">
-            <span class="text-3xl font-extrabold text-sky-400">NT$ 9,800</span>
-            <span class="text-slate-400 text-sm"> ~ 15,800</span>
-          </div>
-          <ul class="text-slate-300 text-sm space-y-3 mb-6">
-            <li class="flex items-center"><span class="text-sky-400 mr-2">✓</span> 包含輕量門面包所有內容</li>
-            <li class="flex items-center"><span class="text-sky-400 mr-2">✓</span> <strong>LINE 機器人 / 自動化即時通知</strong></li>
-            <li class="flex items-center"><span class="text-sky-400 mr-2">✓</span> <strong>Google Calendar 日曆行程自動同步</strong></li>
-            <li class="flex items-center"><span class="text-sky-400 mr-2">✓</span> 直覺式 Google Sheets 後台自行改檔</li>
-            <li class="flex items-center"><span class="text-sky-400 mr-2">✓</span> 製作時間：3 ~ 5 天快速交付</li>
-          </ul>
-        </div>
-        <a href="https://line.me/ti/p/~0983306877" target="_blank" class="w-full text-center py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-bold shadow-lg transition">立即諮詢此方案</a>
-      </div>
-
-      <!-- 方案 3: 全套客製包 -->
-      <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
-        <div>
-          <h3 class="text-xl font-bold text-white mb-2">全套客製與整合包</h3>
-          <p class="text-slate-400 text-sm mb-4">適合有特殊功能計算、多分店或需要深度視覺客製的品牌。</p>
-          <div class="my-4">
-            <span class="text-3xl font-extrabold text-white">NT$ 18,000</span>
-            <span class="text-slate-400 text-sm"> 起</span>
-          </div>
-          <ul class="text-slate-300 text-sm space-y-3 mb-6">
-            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> 包含自動預約包所有內容</li>
-            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> 客製化 UI/UX 視覺設計與專屬微動畫</li>
-            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> 第三方功能整合（飲控試算/知識庫等）</li>
-            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> 1 對 1 操作教學與 30 天保固服務</li>
-          </ul>
-        </div>
-        <a href="https://line.me/ti/p/~0983306877" target="_blank" class="w-full text-center py-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-medium transition">諮詢此方案</a>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <div class="text-center text-slate-500 text-xs mt-12">
-    © Digital Card & Automation Services. All rights reserved.
-  </div>
+    <!-- JavaScript：點擊點擊按鈕跳轉或互動紀錄 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.btn');
+            
+            buttons.forEach((btn) => {
+                btn.addEventListener('click', (e) => {
+                    // 可在此處加入 Google Analytics 或自訂事件追蹤
+                    console.log('使用者點擊了諮詢按鈕：', e.target.closest('.card').querySelector('h3').innerText);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
