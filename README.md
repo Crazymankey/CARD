@@ -11,5 +11,5 @@
 * **用途**：私訊專用報價單！當客戶問「請問怎麼算／多少錢」時，複製此連結傳給客戶使用。
 
 ### 3. `pricing-buyout.html`（買斷模式報價單）
-* **專屬網址**：https://crazymankey.github.io/CARD/pricing-buyout.html
+* **專屬網址**：https://crazymankey.github.io/CARD/pricing-outright.html
 * **用途**：談判專用報價單！當客戶明確要求「一次性買斷、移交原始碼與主機自理」時，傳送此連結給客戶參考買斷價格（$12,000 / $25,000 / $50,000+）與保固條款。
