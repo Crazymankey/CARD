@@ -1,1 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <!-- Requirement 1: Viewport meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AaaS 自動化服務與買斷方案報價矩陣</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --accent-hover: #0284c7;
+            --buyout-color: #f59e0b;
+            --buyout-hover: #d97706;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --border-color: #334155;
+            --popular-border: #38bdf8;
+            --badge-bg: #0284c7;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            /* Requirement 4: Mobile font size at least 16px */
+            font-size: 16px;
+            line-height: 1.6;
+            padding: 24px 16px;
+        }
+
+        /* Requirement 3: Max-width for media */
+        img, svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        header p {
+            color: var(--text-sub);
+            font-size: 1rem;
+        }
+
+        /* Model Switcher Tabs */
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 36px;
+        }
+
+        .toggle-wrapper {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 6px;
+            border-radius: 12px;
+            display: inline-flex;
+            gap: 6px;
+        }
+
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-sub);
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            /* Requirement 5: Touch target size at least 44x44px */
+            min-height: 44px;
+            min-width: 120px;
+        }
+
+        .toggle-btn.active-hosting {
+            background-color: var(--accent-color);
+            color: #0f172a;
+        }
+
+        .toggle-btn.active-buyout {
+            background-color: var(--buyout-color);
+            color: #0f172a;
+        }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 24px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Requirement 2: Flexbox / Grid Responsive Layout */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .card.popular {
+            border: 2px solid var(--popular-border);
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background-color: var(--badge-bg);
+            color: #fff;
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .card-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .card-header p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .price-box {
+            margin-bottom: 20px;
+            background-color: rgba(15, 23, 42, 0.5);
+            padding: 12px 16px;
+            border-radius: 8px;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .price-main {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .price-buyout-main {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--buyout-color);
+        }
+
+        .price-sub {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .buyout-mode .feature-list li::before {
+            color: var(--buyout-color);
+        }
+
+        /* Requirement 5: Buttons min 44x44px touch region */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            min-width: 44px;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: var(--accent-color);
+            color: #0f172a;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            color: #fff;
+        }
+
+        .btn-buyout {
+            background-color: var(--buyout-color);
+            color: #0f172a;
+        }
+
+        .btn-buyout:hover {
+            background-color: var(--buyout-hover);
+            color: #fff;
+        }
+
+        /* Add-ons and Comparison Section */
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-top: 24px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: rgba(15, 23, 42, 0.6);
+            color: var(--text-main);
+        }
+
+        td {
+            color: var(--text-sub);
+        }
+
+        .highlight-col {
+            color: var(--text-main);
+            font-weight: bold;
+        }
+
+        .notice-card {
+            background-color: rgba(245, 158, 11, 0.05);
+            border: 1px solid var(--buyout-color);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 24px;
+        }
+
+        .notice-title {
+            color: var(--buyout-color);
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .notice-list {
+            list-style: none;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Requirement 6: Media Queries for 375px, 768px, 1024px */
+        @media (min-width: 768px) {
+            body {
+                padding: 40px 24px;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>AaaS 自動化服務與買斷方案報價矩陣</h1>
+            <p>彈性訂閱託管 vs 專案買斷原始碼・滿足不同企業營運需求</p>
+        </header>
+
+        <!-- 切換按鈕 (託管 vs 買斷) -->
+        <div class="toggle-container">
+            <div class="toggle-wrapper">
+                <button id="btn-hosting" class="toggle-btn active-hosting" onclick="switchMode('hosting')">託管訂閱模式 (AaaS)</button>
+                <button id="btn-buyout" class="toggle-btn" onclick="switchMode('buyout')">一次性專案買斷</button>
+            </div>
+        </div>
+
+        <!-- 區塊一：核心方案矩陣 -->
+        <section>
+            <h2 id="mode-title" class="section-title">託管訂閱方案 (每月省心維護)</h2>
+            <div class="pricing-grid" id="pricing-container">
+                
+                <!-- 極速入門版 -->
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <h3>極速入門版</h3>
+                            <p>適合單店 / 個人工作室</p>
+                        </div>
+                        <div class="price-box" id="price-box-1">
+                            <div class="price-main">NT$ 3,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div>
+                            <div class="price-sub">+ NT$ 599 / 月託管費</div>
+                        </div>
+                        <ul class="feature-list" id="features-1">
+                            <li>1 個核心自動化工作流</li>
+                            <li>庫存低於門檻 LINE 自動預警</li>
+                            <li>Google 試算表結構整理與串接</li>
+                            <li>基礎 LINE Notify / Bot 通知</li>
+                            <li>含伺服器穩定託管與斷線監控</li>
+                        </ul>
+                    </div>
+                    <a href="https://line.me/ti/p/~0983306877" id="btn-card-1" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
+                </div>
+
+                <!-- 標準商業版 (主推) -->
+                <div class="card popular">
+                    <div class="badge">最受歡迎</div>
+                    <div>
+                        <div class="card-header">
+                            <h3>標準商業版</h3>
+                            <p>適合多分店 / 小型企業</p>
+                        </div>
+                        <div class="price-box" id="price-box-2">
+                            <div class="price-main">NT$ 8,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div>
+                            <div class="price-sub">+ NT$ 899 / 月託管費</div>
+                        </div>
+                        <ul class="feature-list" id="features-2">
+                            <li>多門市 / 多欄位條件邏輯判斷</li>
+                            <li>自動數據輪詢與定時檢查</li>
+                            <li>多頻道 / 指定 LINE 群組推播</li>
+                            <li>每週自動備份與數據整理</li>
+                            <li><strong>含每月 1 次免費微調額度</strong></li>
+                        </ul>
+                    </div>
+                    <a href="https://line.me/ti/p/~0983306877" id="btn-card-2" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
+                </div>
+
+                <!-- 旗艦企業版 -->
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <h3>旗艦企業版</h3>
+                            <p>中小型連鎖品牌 / 高頻需求</p>
+                        </div>
+                        <div class="price-box" id="price-box-3">
+                            <div class="price-main">NT$ 18,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div>
+                            <div class="price-sub">+ NT$ 1,499 / 月託管費</div>
+                        </div>
+                        <ul class="feature-list" id="features-3">
+                            <li>雙向操作 (LINE 按鈕互動回傳 Sheet)</li>
+                            <li>高頻率檢測與多系統整合</li>
+                            <li>跨系統串接 (ERP / POS / Email)</li>
+                            <li>專屬高效能 n8n 主機獨立託管</li>
+                            <li><strong>含每月 2 次免費微調額度</strong></li>
+                        </ul>
+                    </div>
+                    <a href="https://line.me/ti/p/~0983306877" id="btn-card-3" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 區塊二：託管 vs 買斷權責比較表 -->
+        <section>
+            <h2 class="section-title">託管模式 vs 一次性買斷權責比較</h2>
+            <div class="comparison-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>比較項目</th>
+                            <th>託管訂閱模式 (AaaS)</th>
+                            <th>一次性專案買斷</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="highlight-col">伺服器主機與維護</td>
+                            <td>由我們專責維護 (24h 運轉與備份)</td>
+                            <td>移交至客戶端 VPS 主機，由客戶自理</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-col">程式碼與智慧財產權</td>
+                            <td>提供託管使用權（無授權釋出 JSON）</td>
+                            <td>完整交付 n8n JSON 原始檔與備份檔</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-col">API 變更與斷線修復</td>
+                            <td>包妥於月費中，無額外修復費用</td>
+                            <td>保固期過後，按次排查 (NT$ 1,500 ~ 3,000/次)</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-col">免費微調額度</td>
+                            <td>標準版以上每月享 1~2 次免費微調</td>
+                            <td>僅提供移交保固期內除錯 (7~14天)</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-col">資金門檻</td>
+                            <td>首期負擔低 ($3,999 起)</td>
+                            <td>一次性投入高 ($12,000 起)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 買斷條款說明卡片 -->
+            <div class="notice-card">
+                <div class="notice-title">⚠️ 一次性買斷注意事項與商業規範</div>
+                <ul class="notice-list">
+                    <li>• <strong>伺服器環境自備：</strong>買斷客戶需自行支付雲端 VPS 費用（如 DigitalOcean / AWS），或授權由我們代建主機（主機租金按月向雲端廠商支付）。</li>
+                    <li>• <strong>單一企業授權：</strong>買斷交付之工作流 JSON 檔僅限本合約指定企業/門市使用，未經授權不得轉售、複製或對外商業化。</li>
+                    <li>• <strong>保固與售後排查：</strong>買斷專案交付後提供 7~14 天系統穩定保固。保固期滿後，若因第三方 API 格式更動或客戶操作不當造成停擺，維護排查費用為 NT$ 1,500 ~ 3,000 / 次。</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript：模式切換動態邏輯 -->
+    <script>
+        const data = {
+            hosting: {
+                title: "託管訂閱方案 (每月省心維護)",
+                card1: {
+                    price: `<div class="price-main">NT$ 3,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div><div class="price-sub">+ NT$ 599 / 月託管費</div>`,
+                    features: [
+                        "1 個核心自動化工作流",
+                        "庫存低於門檻 LINE 自動預警",
+                        "Google 試算表結構整理與串接",
+                        "基礎 LINE Notify / Bot 通知",
+                        "含伺服器穩定託管與斷線監控"
+                    ]
+                },
+                card2: {
+                    price: `<div class="price-main">NT$ 8,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div><div class="price-sub">+ NT$ 899 / 月託管費</div>`,
+                    features: [
+                        "多門市 / 多欄位條件邏輯判斷",
+                        "自動數據輪詢與定時檢查",
+                        "多頻道 / 指定 LINE 群組推播",
+                        "每週自動備份與數據整理",
+                        "<strong>含每月 1 次免費微調額度</strong>"
+                    ]
+                },
+                card3: {
+                    price: `<div class="price-main">NT$ 18,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div><div class="price-sub">+ NT$ 1,499 / 月託管費</div>`,
+                    features: [
+                        "雙向操作 (LINE 按鈕互動回傳 Sheet)",
+                        "高頻率檢測與多系統整合",
+                        "跨系統串接 (ERP / POS / Email)",
+                        "專屬高效能 n8n 主機獨立託管",
+                        "<strong>含每月 2 次免費微調額度</strong>"
+                    ]
+                }
+            },
+            buyout: {
+                title: "一次性買斷方案 (一次付清專案賣斷)",
+                card1: {
+                    price: `<div class="price-buyout-main">NT$ 12,000 <span style="font-size: 0.9rem; font-weight: normal;">/ 一次性</span></div><div class="price-sub">無後續月費・含 7 天移交保固</div>`,
+                    features: [
+                        "1 個核心自動化工作流完整交付",
+                        "交付 n8n JSON 原始碼工作流檔",
+                        "協助部署至客戶指定 VPS / 雲端主機",
+                        "1 次線上移交操作與維護教學",
+                        "含上線後 7 天除錯保固"
+                    ]
+                },
+                card2: {
+                    price: `<div class="price-buyout-main">NT$ 25,000 <span style="font-size: 0.9rem; font-weight: normal;">/ 一次性</span></div><div class="price-sub">無後續月費・含 14 天移交保固</div>`,
+                    features: [
+                        "多門市 / 複雜條件判斷流程交付",
+                        "交付所有 JSON 邏輯與 Google Sheet 範本",
+                        "完整協助移交至客戶端雲端環境",
+                        "提供系統架構備份與教學文件",
+                        "含上線後 14 天穩定除錯保固"
+                    ]
+                },
+                card3: {
+                    price: `<div class="price-buyout-main">NT$ 50,000 起 <span style="font-size: 0.9rem; font-weight: normal;">/ 專案評估</span></div><div class="price-sub">無後續月費・含 14 天移交保固</div>`,
+                    features: [
+                        "雙向互動 / 跨系統 API 高階邏輯買斷",
+                        "完整開發原始檔與數據流文件交付",
+                        "專屬部署腳本與獨立 Docker 環境建置",
+                        "1 對 1 專人交接會議與工程文件",
+                        "優先排查 14 天保固服務"
+                    ]
+                }
+            }
+        };
+
+        function switchMode(mode) {
+            const btnHosting = document.getElementById('btn-hosting');
+            const btnBuyout = document.getElementById('btn-buyout');
+            const modeTitle = document.getElementById('mode-title');
+            const container = document.getElementById('pricing-container');
+
+            if (mode === 'hosting') {
+                btnHosting.className = "toggle-btn active-hosting";
+                btnBuyout.className = "toggle-btn";
+                container.classList.remove('buyout-mode');
+            } else {
+                btnBuyout.className = "toggle-btn active-buyout";
+                btnHosting.className = "toggle-btn";
+                container.classList.add('buyout-mode');
+            }
+
+            modeTitle.innerText = data[mode].title;
+
+            // Update Cards content
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById(`price-box-${i}`).innerHTML = data[mode][`card${i}`].price;
+                
+                const featureUl = document.getElementById(`features-${i}`);
+                featureUl.innerHTML = data[mode][`card${i}`].features
+                    .map(item => `<li>${item}</li>`)
+                    .join('');
+
+                const btn = document.getElementById(`btn-card-${i}`);
+                if (mode === 'buyout') {
+                    btn.classList.add('btn-buyout');
+                } else {
+                    btn.classList.remove('btn-buyout');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
