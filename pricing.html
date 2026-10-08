@@ -29,7 +29,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            /* 規範 4：手機版字體大小至少 16px */
+            /* 規範 4：字體大小手機版至少 16px */
             font-size: 16px;
             line-height: 1.6;
             padding: 24px 16px;
@@ -87,7 +87,6 @@
         }
 
         /* 規範 2：使用 Flexbox / Grid 排版 */
-        /* 手機版預設：單欄 Grid */
         .pricing-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -202,7 +201,7 @@
             color: #fff;
         }
 
-        /* 加價模組與表單樣式 */
+        /* 加價模組與修改說明 */
         .addons-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -235,8 +234,35 @@
             font-size: 0.9rem;
         }
 
+        /* 條款特別提示卡片 */
+        .notice-card {
+            grid-column: 1 / -1;
+            background-color: rgba(56, 189, 248, 0.05);
+            border: 1px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 16px;
+        }
+
+        .notice-title {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .notice-list {
+            list-style: none;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .notice-list li {
+            margin-bottom: 6px;
+        }
+
         /* 規範 6：響應式斷點設定 */
-        /* 平板尺寸 (768px 及以上) */
         @media (min-width: 768px) {
             body {
                 padding: 40px 24px;
@@ -255,7 +281,6 @@
             }
         }
 
-        /* 桌面尺寸 (1024px 及以上) */
         @media (min-width: 1024px) {
             .pricing-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -291,6 +316,7 @@
                         <li>庫存低於門檻 LINE 自動預警</li>
                         <li>Google 試算表結構整理與串接</li>
                         <li>基礎 LINE Notify / Bot 通知</li>
+                        <li>含系統穩定託管與斷線監控</li>
                     </ul>
                     <a href="https://line.me/ti/p/~0983306877" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
                 </div>
@@ -311,7 +337,7 @@
                         <li>自動數據輪詢與定時檢查</li>
                         <li>多頻道 / 指定 LINE 群組推播</li>
                         <li>每週自動備份與數據整理</li>
-                        <li>含每月 1 次邏輯小幅微調</li>
+                        <li><strong>含每月 1 次免費微調額度</strong></li>
                     </ul>
                     <a href="https://line.me/ti/p/~0983306877" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
                 </div>
@@ -331,7 +357,7 @@
                         <li>高頻率檢測與多系統整合</li>
                         <li>跨系統串接 (ERP / POS / Email)</li>
                         <li>專屬高效能 n8n 主機獨立託管</li>
-                        <li>優先技術支援與排查</li>
+                        <li><strong>含每月 2 次免費微調額度</strong></li>
                     </ul>
                     <a href="https://line.me/ti/p/~0983306877" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
                 </div>
@@ -339,9 +365,9 @@
             </div>
         </section>
 
-        <!-- 區塊二：單項加價模組 -->
+        <!-- 區塊二：單項加價與修改額度 -->
         <section>
-            <h2 class="section-title">單項技能與客製模組 (Add-ons)</h2>
+            <h2 class="section-title">單項客製與修改維護額度</h2>
             <div class="addons-grid">
                 
                 <div class="addon-item">
@@ -368,18 +394,41 @@
                     <div class="addon-desc">含文案包裝、響應式 RWD 網頁設計與 GitHub/Vercel 免費部署。</div>
                 </div>
 
+                <!-- 額外變更與修改單價 -->
+                <div class="addon-item">
+                    <div class="addon-title">超額／單次小幅微調</div>
+                    <div class="addon-price">NT$ 500 ~ 800 / 次</div>
+                    <div class="addon-desc">超過月費包套額度之參數修改、文字調校、觸發時間變更。</div>
+                </div>
+
+                <div class="addon-item">
+                    <div class="addon-title">中型結構性變更 (Change Order)</div>
+                    <div class="addon-price">NT$ 1,500 ~ 3,000 / 次</div>
+                    <div class="addon-desc">新增試算表欄位判斷、增加過濾條件、調整推播流程架構。</div>
+                </div>
+
+                <!-- 條款與規則說明卡片 -->
+                <div class="notice-card">
+                    <div class="notice-title">💡 月費託管與修改額度規範說明</div>
+                    <ul class="notice-list">
+                        <li>• <strong>免費微調範疇：</strong>指修改安全庫存數值、通知文字格式、推播時間或更新 LINE 接收群組等「不更動核心流程」之設定。</li>
+                        <li>• <strong>額度使用規則：</strong>標準版（1次/月）與旗艦版（2次/月）之微調額度限當月使用完畢，不可跨月累計或轉讓。</li>
+                        <li>• <strong>架構重構（Major Overhaul）：</strong>若涉及新增跨平台 API 串接、更改資料庫邏輯或重新設計整套 n8n 工作流，將評估後另行按專案重新報價。</li>
+                        <li>• <strong>服務級別保證 (SLA)：</strong>一般微調與異常排查將於 1~3 個工作天內完成處理。</li>
+                    </ul>
+                </div>
+
             </div>
         </section>
     </div>
 
-    <!-- JavaScript：點擊點擊按鈕跳轉或互動紀錄 -->
+    <!-- JavaScript：點擊追蹤紀錄 -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const buttons = document.querySelectorAll('.btn');
             
             buttons.forEach((btn) => {
                 btn.addEventListener('click', (e) => {
-                    // 可在此處加入 Google Analytics 或自訂事件追蹤
                     console.log('使用者點擊了諮詢按鈕：', e.target.closest('.card').querySelector('h3').innerText);
                 });
             });
