@@ -2,9 +2,8 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <!-- Requirement 1: Viewport meta tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AaaS 自動化服務與買斷方案報價矩陣</title>
+    <title>企業自動化升級與系統買斷方案</title>
     <style>
         :root {
             --bg-color: #0f172a;
@@ -30,13 +29,11 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            /* Requirement 4: Mobile font size at least 16px */
             font-size: 16px;
             line-height: 1.6;
             padding: 24px 16px;
         }
 
-        /* Requirement 3: Max-width for media */
         img, svg {
             max-width: 100%;
             height: auto;
@@ -89,7 +86,6 @@
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
-            /* Requirement 5: Touch target size at least 44x44px */
             min-height: 44px;
             min-width: 120px;
         }
@@ -128,7 +124,6 @@
             border-radius: 2px;
         }
 
-        /* Requirement 2: Flexbox / Grid Responsive Layout */
         .pricing-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -232,7 +227,6 @@
             color: var(--buyout-color);
         }
 
-        /* Requirement 5: Buttons min 44x44px touch region */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -267,7 +261,6 @@
             color: #fff;
         }
 
-        /* Add-ons and Comparison Section */
         .comparison-table-wrapper {
             overflow-x: auto;
             background-color: var(--card-bg);
@@ -325,7 +318,6 @@
             line-height: 1.8;
         }
 
-        /* Requirement 6: Media Queries for 375px, 768px, 1024px */
         @media (min-width: 768px) {
             body {
                 padding: 40px 24px;
@@ -351,21 +343,21 @@
 
     <div class="container">
         <header>
-            <h1>AaaS 自動化服務與買斷方案報價矩陣</h1>
-            <p>彈性訂閱託管 vs 專案買斷原始碼・滿足不同企業營運需求</p>
+            <h1>企業自動化升級與系統買斷方案</h1>
+            <p>省心月費代管 vs 一次性專案買斷・滿足不同企業營運決策</p>
         </header>
 
         <!-- 切換按鈕 (託管 vs 買斷) -->
         <div class="toggle-container">
             <div class="toggle-wrapper">
-                <button id="btn-hosting" class="toggle-btn active-hosting" onclick="switchMode('hosting')">託管訂閱模式 (AaaS)</button>
-                <button id="btn-buyout" class="toggle-btn" onclick="switchMode('buyout')">一次性專案買斷</button>
+                <button id="btn-hosting" class="toggle-btn active-hosting" onclick="switchMode('hosting')">訂閱式省心代管方案</button>
+                <button id="btn-buyout" class="toggle-btn" onclick="switchMode('buyout')">一次性專案買斷方案</button>
             </div>
         </div>
 
         <!-- 區塊一：核心方案矩陣 -->
         <section>
-            <h2 id="mode-title" class="section-title">託管訂閱方案 (每月省心維護)</h2>
+            <h2 id="mode-title" class="section-title">訂閱式省心代管方案 (專人守護、免動手)</h2>
             <div class="pricing-grid" id="pricing-container">
                 
                 <!-- 極速入門版 -->
@@ -373,18 +365,18 @@
                     <div>
                         <div class="card-header">
                             <h3>極速入門版</h3>
-                            <p>適合單店 / 個人工作室</p>
+                            <p>適合單店經營 / 個人工作室</p>
                         </div>
                         <div class="price-box" id="price-box-1">
                             <div class="price-main">NT$ 3,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div>
-                            <div class="price-sub">+ NT$ 599 / 月託管費</div>
+                            <div class="price-sub">+ NT$ 599 / 月維護代管</div>
                         </div>
                         <ul class="feature-list" id="features-1">
-                            <li>1 個核心自動化工作流</li>
-                            <li>庫存低於門檻 LINE 自動預警</li>
-                            <li>Google 試算表結構整理與串接</li>
-                            <li>基礎 LINE Notify / Bot 通知</li>
-                            <li>含伺服器穩定託管與斷線監控</li>
+                            <li>1 套核心自動化工作流程</li>
+                            <li>庫存不足或關鍵數據 LINE 自動預警</li>
+                            <li>Google 試算表自動彙整與串接</li>
+                            <li>基礎 LINE 通知與 Bot 互動設定</li>
+                            <li>含伺服器穩定代管與 24 小時不斷線監控</li>
                         </ul>
                     </div>
                     <a href="https://line.me/ti/p/~0983306877" id="btn-card-1" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
@@ -396,18 +388,18 @@
                     <div>
                         <div class="card-header">
                             <h3>標準商業版</h3>
-                            <p>適合多分店 / 小型企業</p>
+                            <p>適合多分店 / 中小企業團隊</p>
                         </div>
                         <div class="price-box" id="price-box-2">
                             <div class="price-main">NT$ 8,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div>
-                            <div class="price-sub">+ NT$ 899 / 月託管費</div>
+                            <div class="price-sub">+ NT$ 899 / 月維護代管</div>
                         </div>
                         <ul class="feature-list" id="features-2">
-                            <li>多門市 / 多欄位條件邏輯判斷</li>
-                            <li>自動數據輪詢與定時檢查</li>
-                            <li>多頻道 / 指定 LINE 群組推播</li>
-                            <li>每週自動備份與數據整理</li>
-                            <li><strong>含每月 1 次免費微調額度</strong></li>
+                            <li>多門市 / 多條件複雜邏輯判斷</li>
+                            <li>定時排程自動巡檢與數據同步</li>
+                            <li>多頻道 / 指定群組智慧推播</li>
+                            <li>每週系統自動備份與數據安全整理</li>
+                            <li><strong>含每月 1 次免費微調與優化額度</strong></li>
                         </ul>
                     </div>
                     <a href="https://line.me/ti/p/~0983306877" id="btn-card-2" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
@@ -418,18 +410,18 @@
                     <div>
                         <div class="card-header">
                             <h3>旗艦企業版</h3>
-                            <p>中小型連鎖品牌 / 高頻需求</p>
+                            <p>連鎖品牌 / 高頻率運算需求</p>
                         </div>
                         <div class="price-box" id="price-box-3">
                             <div class="price-main">NT$ 18,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div>
-                            <div class="price-sub">+ NT$ 1,499 / 月託管費</div>
+                            <div class="price-sub">+ NT$ 1,499 / 月維護代管</div>
                         </div>
                         <ul class="feature-list" id="features-3">
-                            <li>雙向操作 (LINE 按鈕互動回傳 Sheet)</li>
-                            <li>高頻率檢測與多系統整合</li>
-                            <li>跨系統串接 (ERP / POS / Email)</li>
-                            <li>專屬高效能 n8n 主機獨立託管</li>
-                            <li><strong>含每月 2 次免費微調額度</strong></li>
+                            <li>雙向互動式操作 (LINE 按鈕直接回傳更新)</li>
+                            <li>高頻率即時監測與多系統異質整合</li>
+                            <li>跨系統無縫串接 (ERP / POS / Email)</li>
+                            <li>專屬高效能獨立主機代管，效能全開</li>
+                            <li><strong>含每月 2 次免費微調與優化額度</strong></li>
                         </ul>
                     </div>
                     <a href="https://line.me/ti/p/~0983306877" id="btn-card-3" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
@@ -440,41 +432,41 @@
 
         <!-- 區塊二：託管 vs 買斷權責比較表 -->
         <section>
-            <h2 class="section-title">託管模式 vs 一次性買斷權責比較</h2>
+            <h2 class="section-title">省心代管 vs 一次性買斷 權責比較</h2>
             <div class="comparison-table-wrapper">
                 <table>
                     <thead>
                         <tr>
                             <th>比較項目</th>
-                            <th>託管訂閱模式 (AaaS)</th>
-                            <th>一次性專案買斷</th>
+                            <th>訂閱式省心代管方案</th>
+                            <th>一次性專案買斷方案</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="highlight-col">伺服器主機與維護</td>
-                            <td>由我們專責維護 (24h 運轉與備份)</td>
-                            <td>移交至客戶端 VPS 主機，由客戶自理</td>
+                            <td>由我們專責維護（24 小時運轉與自動備份）</td>
+                            <td>移交至客戶指定主機，由內部自行維護</td>
                         </tr>
                         <tr>
-                            <td class="highlight-col">程式碼與智慧財產權</td>
-                            <td>提供託管使用權（無授權釋出 JSON）</td>
-                            <td>完整交付 n8n JSON 原始檔與備份檔</td>
+                            <td class="highlight-col">系統架構與產權交付</td>
+                            <td>享有專屬自動化代管服務與運作權</td>
+                            <td>完整移交系統工作流與開發原始設定檔</td>
                         </tr>
                         <tr>
-                            <td class="highlight-col">API 變更與斷線修復</td>
-                            <td>包妥於月費中，無額外修復費用</td>
-                            <td>保固期過後，按次排查 (NT$ 1,500 ~ 3,000/次)</td>
+                            <td class="highlight-col">系統異常與突發修復</td>
+                            <td>包含在月費服務中，無額外修復費用</td>
+                            <td>保固期過後，按次排查計費 (NT$ 1,500 ~ 3,000/次)</td>
                         </tr>
                         <tr>
-                            <td class="highlight-col">免費微調額度</td>
-                            <td>標準版以上每月享 1~2 次免費微調</td>
-                            <td>僅提供移交保固期內除錯 (7~14天)</td>
+                            <td class="highlight-col">日常微調與彈性異動</td>
+                            <td>標準版以上每月享有 1~2 次免費微調</td>
+                            <td>僅提供移交後短期保固期內除錯</td>
                         </tr>
                         <tr>
-                            <td class="highlight-col">資金門檻</td>
-                            <td>首期負擔低 ($3,999 起)</td>
-                            <td>一次性投入高 ($12,000 起)</td>
+                            <td class="highlight-col">初期資金門檻</td>
+                            <td>首期建置輕鬆 ($3,999 起)</td>
+                            <td>一次性專案買斷投入 ($12,000 起)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -484,9 +476,9 @@
             <div class="notice-card">
                 <div class="notice-title">⚠️ 一次性買斷注意事項與商業規範</div>
                 <ul class="notice-list">
-                    <li>• <strong>伺服器環境自備：</strong>買斷客戶需自行支付雲端 VPS 費用（如 DigitalOcean / AWS），或授權由我們代建主機（主機租金按月向雲端廠商支付）。</li>
-                    <li>• <strong>單一企業授權：</strong>買斷交付之工作流 JSON 檔僅限本合約指定企業/門市使用，未經授權不得轉售、複製或對外商業化。</li>
-                    <li>• <strong>保固與售後排查：</strong>買斷專案交付後提供 7~14 天系統穩定保固。保固期滿後，若因第三方 API 格式更動或客戶操作不當造成停擺，維護排查費用為 NT$ 1,500 ~ 3,000 / 次。</li>
+                    <li>• <strong>主機環境自備：</strong>買斷客戶需自行準備雲端伺服器（如 DigitalOcean / AWS），或委由我們協助建置（主機租金按月向雲端供應商支付）。</li>
+                    <li>• <strong>單一企業授權：</strong>買斷交付之自動化工作流檔案僅限本合約指定企業/門市內部使用，未經授權不得轉售或公開營利。</li>
+                    <li>• <strong>保固與售後支援：</strong>買斷專案交付後提供 7~14 天系統穩定運行保固。期滿後若因外部合作系統改版或內部操作調整導致停擺，將視情況酌收排查維護費。</li>
                 </ul>
             </div>
         </section>
@@ -496,68 +488,68 @@
     <script>
         const data = {
             hosting: {
-                title: "託管訂閱方案 (每月省心維護)",
+                title: "訂閱式省心代管方案 (專人守護、免動手)",
                 card1: {
-                    price: `<div class="price-main">NT$ 3,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div><div class="price-sub">+ NT$ 599 / 月託管費</div>`,
+                    price: `<div class="price-main">NT$ 3,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div><div class="price-sub">+ NT$ 599 / 月維護代管</div>`,
                     features: [
-                        "1 個核心自動化工作流",
-                        "庫存低於門檻 LINE 自動預警",
-                        "Google 試算表結構整理與串接",
-                        "基礎 LINE Notify / Bot 通知",
-                        "含伺服器穩定託管與斷線監控"
+                        "1 套核心自動化工作流程",
+                        "庫存不足或關鍵數據 LINE 自動預警",
+                        "Google 試算表自動彙整與串接",
+                        "基礎 LINE 通知與 Bot 互動設定",
+                        "含伺服器穩定代管與 24 小時不斷線監控"
                     ]
                 },
                 card2: {
-                    price: `<div class="price-main">NT$ 8,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div><div class="price-sub">+ NT$ 899 / 月託管費</div>`,
+                    price: `<div class="price-main">NT$ 8,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div><div class="price-sub">+ NT$ 899 / 月維護代管</div>`,
                     features: [
-                        "多門市 / 多欄位條件邏輯判斷",
-                        "自動數據輪詢與定時檢查",
-                        "多頻道 / 指定 LINE 群組推播",
-                        "每週自動備份與數據整理",
-                        "<strong>含每月 1 次免費微調額度</strong>"
+                        "多門市 / 多條件複雜邏輯判斷",
+                        "定時排程自動巡檢與數據同步",
+                        "多頻道 / 指定群組智慧推播",
+                        "每週系統自動備份與數據安全整理",
+                        "<strong>含每月 1 次免費微調與優化額度</strong>"
                     ]
                 },
                 card3: {
-                    price: `<div class="price-main">NT$ 18,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div><div class="price-sub">+ NT$ 1,499 / 月託管費</div>`,
+                    price: `<div class="price-main">NT$ 18,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div><div class="price-sub">+ NT$ 1,499 / 月維護代管</div>`,
                     features: [
-                        "雙向操作 (LINE 按鈕互動回傳 Sheet)",
-                        "高頻率檢測與多系統整合",
-                        "跨系統串接 (ERP / POS / Email)",
-                        "專屬高效能 n8n 主機獨立託管",
-                        "<strong>含每月 2 次免費微調額度</strong>"
+                        "雙向互動式操作 (LINE 按鈕直接回傳更新)",
+                        "高頻率即時監測與多系統異質整合",
+                        "跨系統無縫串接 (ERP / POS / Email)",
+                        "專屬高效能獨立主機代管，效能全開",
+                        "<strong>含每月 2 次免費微調與優化額度</strong>"
                     ]
                 }
             },
             buyout: {
-                title: "一次性買斷方案 (一次付清專案賣斷)",
+                title: "一次性專案買斷方案 (一次付清、自主掌握)",
                 card1: {
-                    price: `<div class="price-buyout-main">NT$ 12,000 <span style="font-size: 0.9rem; font-weight: normal;">/ 一次性</span></div><div class="price-sub">無後續月費・含 7 天移交保固</div>`,
+                    price: `<div class="price-buyout-main">NT$ 12,000 <span style="font-size: 0.9rem; font-weight: normal;">/ 一次付清</span></div><div class="price-sub">無後續月費・含 7 天移交保固</div>`,
                     features: [
-                        "1 個核心自動化工作流完整交付",
-                        "交付 n8n JSON 原始碼工作流檔",
-                        "協助部署至客戶指定 VPS / 雲端主機",
-                        "1 次線上移交操作與維護教學",
-                        "含上線後 7 天除錯保固"
+                        "1 套核心自動化工作流完整建置",
+                        "完整交付工作流原始設定與範本檔",
+                        "協助部署至客戶指定之雲端伺服器環境",
+                        "提供 1 對 1 線上交接與操作教學",
+                        "含上線後 7 天穩定除錯保固"
                     ]
                 },
                 card2: {
-                    price: `<div class="price-buyout-main">NT$ 25,000 <span style="font-size: 0.9rem; font-weight: normal;">/ 一次性</span></div><div class="price-sub">無後續月費・含 14 天移交保固</div>`,
+                    price: `<div class="price-buyout-main">NT$ 25,000 <span style="font-size: 0.9rem; font-weight: normal;">/ 一次付清</span></div><div class="price-sub">無後續月費・含 14 天移交保固</div>`,
                     features: [
-                        "多門市 / 複雜條件判斷流程交付",
-                        "交付所有 JSON 邏輯與 Google Sheet 範本",
-                        "完整協助移交至客戶端雲端環境",
-                        "提供系統架構備份與教學文件",
+                        "多門市 / 複雜條件判斷流程完整買斷",
+                        "交付完整邏輯架構與 Google 試算表範本",
+                        "專人協助移交至客戶端雲端運算環境",
+                        "提供系統架構備份與專屬交接文件",
                         "含上線後 14 天穩定除錯保固"
                     ]
                 },
                 card3: {
                     price: `<div class="price-buyout-main">NT$ 50,000 起 <span style="font-size: 0.9rem; font-weight: normal;">/ 專案評估</span></div><div class="price-sub">無後續月費・含 14 天移交保固</div>`,
                     features: [
-                        "雙向互動 / 跨系統 API 高階邏輯買斷",
-                        "完整開發原始檔與數據流文件交付",
-                        "專屬部署腳本與獨立 Docker 環境建置",
-                        "1 對 1 專人交接會議與工程文件",
-                        "優先排查 14 天保固服務"
+                        "雙向互動 / 跨系統高階邏輯專案買斷",
+                        "完整開發原始檔與數據流程說明交付",
+                        "專屬部署腳本與獨立伺服器環境建置",
+                        "1 對 1 專人實體／線上交接會議與文件",
+                        "優先排查之 14 天完整保固服務"
                     ]
                 }
             }
@@ -581,7 +573,6 @@
 
             modeTitle.innerText = data[mode].title;
 
-            // Update Cards content
             for (let i = 1; i <= 3; i++) {
                 document.getElementById(`price-box-${i}`).innerHTML = data[mode][`card${i}`].price;
                 
