@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>企業自動化升級與系統代管方案</title>
+<style>
+:root{--bg:#0f172a;--card:#1e293b;--accent:#38bdf8;--accent-h:#0284c7;--text:#f8fafc;--sub:#94a3b8;--border:#334155}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;padding:24px 16px}
+img,svg{max-width:100%;height:auto}
+.container{max-width:1200px;margin:0 auto}
+header{text-align:center;margin-bottom:40px}
+header h1{font-size:1.6rem;margin-bottom:12px}
+header p{color:var(--sub)}
+section{margin-bottom:48px}
+.section-title{font-size:1.3rem;text-align:center;margin-bottom:28px;position:relative;padding-bottom:10px}
+.section-title::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:var(--accent);border-radius:2px}
+.pricing-grid,.addons-grid{display:grid;grid-template-columns:1fr;gap:24px}
+.addons-grid{gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;flex-direction:column;position:relative;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 25px -5px rgba(0,0,0,.3)}
+.card.popular{border:2px solid var(--accent)}
+.badge{position:absolute;top:-13px;right:20px;background:var(--accent-h);color:#fff;font-size:.9rem;padding:4px 12px;border-radius:12px;font-weight:700}
+.card h3{font-size:1.3rem;margin-bottom:6px}
+.card-sub{color:var(--sub);margin-bottom:16px}
+.price-box{background:rgba(15,23,42,.5);padding:12px 16px;border-radius:8px;margin-bottom:20px}
+.price-main{font-size:1.5rem;font-weight:700;color:var(--accent)}
+.price-main small{font-size:.9rem;font-weight:400}
+.price-sub{color:var(--sub)}
+.feature-list{list-style:none;margin-bottom:24px;flex-grow:1}
+.feature-list li{margin-bottom:10px;display:flex;align-items:flex-start}
+.feature-list li::before{content:"✓";color:var(--accent);font-weight:700;margin-right:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;min-width:44px;width:100%;padding:12px 20px;background:var(--accent);color:#0f172a;font-size:1rem;font-weight:700;text-decoration:none;border-radius:8px;transition:background .2s}
+.btn:hover,.btn:focus-visible{background:var(--accent-h);color:#fff}
+.addon-item{background:var(--card);border:1px solid var(--border);padding:16px;border-radius:8px;display:flex;flex-direction:column;gap:6px}
+.addon-title{font-weight:700;font-size:1.05rem}
+.addon-price{color:var(--accent);font-weight:700}
+.addon-desc{color:var(--sub)}
+.notice-card{grid-column:1/-1;background:rgba(56,189,248,.05);border:1px solid var(--accent);padding:20px;border-radius:12px;margin-top:8px}
+.notice-title{color:var(--accent);font-size:1.1rem;font-weight:700;margin-bottom:12px}
+.notice-list{list-style:none;line-height:1.8}
+.notice-list li{margin-bottom:6px}
+footer{text-align:center;color:var(--sub);border-top:1px solid var(--border);padding-top:24px;margin-top:16px}
+@media (min-width:768px){
+ body{padding:40px 24px}
+ header h1{font-size:2.2rem}
+ .pricing-grid{grid-template-columns:repeat(2,1fr)}
+ .addons-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:1024px){.pricing-grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div class="container">
+ <header>
+  <h1>企業自動化升級與數位代管方案</h1>
+  <p>省時、降本、免手動・為您的生意裝上自動駕駛</p>
+ </header>
+
+ <section>
+  <h2 class="section-title">核心自動化訂閱方案</h2>
+  <div class="pricing-grid">
+   <div class="card">
+    <h3>極速入門版</h3>
+    <p class="card-sub">適合單店經營 / 個人工作室</p>
+    <div class="price-box"><div class="price-main">NT$ 3,999 <small>/ 建置費</small></div><div class="price-sub">+ NT$ 599 / 月維護代管</div></div>
+    <ul class="feature-list">
+     <li>1 套核心自動化工作流程</li>
+     <li>即時庫存或數據 LINE 自動預警</li>
+     <li>自動彙整 Google 報表，告別手動複製貼上</li>
+     <li>基礎 LINE 通知推播設定</li>
+     <li>含系統穩定代管與 24 小時斷線監控</li>
+    </ul>
+    <a href="https://line.me/ti/p/~0983306877" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
+   </div>
+
+   <div class="card popular">
+    <div class="badge">最受歡迎</div>
+    <h3>標準商業版</h3>
+    <p class="card-sub">適合多分店 / 團隊協作中小企業</p>
+    <div class="price-box"><div class="price-main">NT$ 8,999 <small>/ 建置費</small></div><div class="price-sub">+ NT$ 899 / 月維護代管</div></div>
+    <ul class="feature-list">
+     <li>多門市 / 多條件複雜邏輯判斷</li>
+     <li>定時排程自動巡檢與數據同步</li>
+     <li>多頻道 / 指定群組智慧推播</li>
+     <li>每週系統自動備份與數據安全整理</li>
+     <li><strong>含每月 1 次免費微調與優化額度</strong></li>
+    </ul>
+    <a href="https://line.me/ti/p/~0983306877" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
+   </div>
+
+   <div class="card">
+    <h3>旗艦企業版</h3>
+    <p class="card-sub">連鎖品牌 / 高頻率運算需求</p>
+    <div class="price-box"><div class="price-main">NT$ 18,999 <small>/ 建置費</small></div><div class="price-sub">+ NT$ 1,499 / 月維護代管</div></div>
+    <ul class="feature-list">
+     <li>雙向互動式操作 (LINE 按鈕直接回傳更新)</li>
+     <li>高頻率即時監測與多系統異質整合</li>
+     <li>跨系統無縫串接 (ERP / POS / Email)</li>
+     <li>專屬高效能獨立主機代管，效能全開</li>
+     <li><strong>含每月 2 次免費微調與優化額度</strong></li>
+    </ul>
+    <a href="https://line.me/ti/p/~0983306877" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
+   </div>
+  </div>
+ </section>
+
+ <section>
+  <h2 class="section-title">單項客製擴充與維護方案</h2>
+  <div class="addons-grid">
+   <div class="addon-item"><div class="addon-title">單一系統功能串接</div><div class="addon-price">NT$ 2,500 ~ 4,000 / 個</div><div class="addon-desc">如：LINE 官方帳號、Gmail 郵件通知、Google 試算表獨立模組串接。</div></div>
+   <div class="addon-item"><div class="addon-title">進階外部系統與數據對接</div><div class="addon-price">NT$ 5,000 ~ 8,000 / 個</div><div class="addon-desc">處理複雜身份認證、特殊授權或非結構化數據自動抓取與清洗。</div></div>
+   <div class="addon-item"><div class="addon-title">互動式 LINE 圖文選單／卡片設計</div><div class="addon-price">NT$ 3,500 ~ 6,000 / 套</div><div class="addon-desc">客製化互動式訊息卡片設計，並與後台自動化系統完美綁定。</div></div>
+   <div class="addon-item"><div class="addon-title">高轉換率商業展示頁 (Landing Page)</div><div class="addon-price">NT$ 6,000 ~ 12,000 / 頁</div><div class="addon-desc">包含商業說服文案包裝、手機版 RWD 設計與快速上線部署。</div></div>
+   <div class="addon-item"><div class="addon-title">超額／單次小幅優化調整</div><div class="addon-price">NT$ 500 ~ 800 / 次</div><div class="addon-desc">超過月費額度之參數微調、顯示文字修改、運作時間排程變更。</div></div>
+   <div class="addon-item"><div class="addon-title">中型業務邏輯調整 (Change Order)</div><div class="addon-price">NT$ 1,500 ~ 3,000 / 次</div><div class="addon-desc">新增試算表欄位判斷、增加過濾篩選條件、調整推播發送規則。</div></div>
+
+   <div class="notice-card">
+    <div class="notice-title">💡 託管服務與修改規範說明</div>
+    <ul class="notice-list">
+     <li>• <strong>免費微調範圍：</strong>指調整安全庫存數字、修改通知文字、變更發送時間或更新接收群組等「不更動核心架構」之微調。</li>
+     <li>• <strong>額度使用規則：</strong>標準版（1次/月）與旗艦版（2次/月）之微調額度限當月使用完畢，恕不跨月累積。</li>
+     <li>• <strong>架構大幅重構：</strong>若涉及新增跨平台系統串接、更改資料庫核心邏輯或重寫整套工作流，將另行評估報價。</li>
+     <li>• <strong>服務承諾 (SLA)：</strong>一般日常微調與系統異常排查將於 1~3 個工作天內優先處理完畢。</li>
+    </ul>
+   </div>
+  </div>
+ </section>
+
+ <footer><p>© 2026 Crazyman</p></footer>
+</div>
+</body>
+</html>
