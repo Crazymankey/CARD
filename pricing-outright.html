@@ -34,11 +34,6 @@
             padding: 24px 16px;
         }
 
-        img, svg {
-            max-width: 100%;
-            height: auto;
-        }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -60,7 +55,6 @@
             font-size: 1rem;
         }
 
-        /* Model Switcher Tabs */
         .toggle-container {
             display: flex;
             justify-content: center;
@@ -319,47 +313,33 @@
         }
 
         @media (min-width: 768px) {
-            body {
-                padding: 40px 24px;
-            }
-
-            header h1 {
-                font-size: 2.2rem;
-            }
-
-            .pricing-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            body { padding: 40px 24px; }
+            header h1 { font-size: 2.2rem; }
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (min-width: 1024px) {
-            .pricing-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            .pricing-grid { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <header>
-            <h1>企業自動化升級與系統代管方案</h1>
-            <p>專人守護、免動手，滿足不同企業營運成長需求</p>
+            <h1>企業自動化升級與系統買斷方案</h1>
+            <p>省心月費代管 vs 一次性專案買斷・滿足不同企業營運決策</p>
         </header>
 
-        <!-- 切換按鈕 (託管 vs 買斷) -->
         <div class="toggle-container">
             <div class="toggle-wrapper">
-                <button id="btn-hosting" class="toggle-btn active-hosting" onclick="switchMode('hosting')">訂閱式省心代管方案</button>
+                <button id="btn-hosting" class="toggle-btn active-hosting" onclick="switchMode('hosting')">核心自動化訂閱方案</button>
                 <button id="btn-buyout" class="toggle-btn" onclick="switchMode('buyout')">一次性專案買斷方案</button>
             </div>
         </div>
 
-        <!-- 區塊一：核心方案矩陣 -->
         <section>
-            <h2 id="mode-title" class="section-title">訂閱式省心代管方案</h2>
+            <h2 id="mode-title" class="section-title">核心自動化訂閱方案</h2>
             <div class="pricing-grid" id="pricing-container">
-                
                 <!-- 極速入門版 -->
                 <div class="card">
                     <div>
@@ -373,22 +353,22 @@
                         </div>
                         <ul class="feature-list" id="features-1">
                             <li>1 套核心自動化工作流程</li>
-                            <li>庫存不足或關鍵數據 LINE 自動預警</li>
-                            <li>Google 試算表自動彙整與串接</li>
-                            <li>基礎 LINE 通知與 Bot 互動設定</li>
-                            <li>含伺服器穩定代管與 24 小時不斷線監控</li>
+                            <li>即時庫存或數據 LINE 自動預警</li>
+                            <li>自動彙整 Google 報表，告別手動複製貼上</li>
+                            <li>專人協助 LINE 通知推播設定</li>
+                            <li>含系統穩定代管與 24 小時不斷線監控</li>
                         </ul>
                     </div>
                     <a href="https://line.me/ti/p/~0983306877" id="btn-card-1" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
                 </div>
 
-                <!-- 標準商業版 (主推) -->
+                <!-- 標準商業版 -->
                 <div class="card popular">
                     <div class="badge">最受歡迎</div>
                     <div>
                         <div class="card-header">
                             <h3>標準商業版</h3>
-                            <p>適合多分店 / 中小企業團隊</p>
+                            <p>適合多分店 / 團隊協作中小企業</p>
                         </div>
                         <div class="price-box" id="price-box-2">
                             <div class="price-main">NT$ 8,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div>
@@ -418,19 +398,17 @@
                         </div>
                         <ul class="feature-list" id="features-3">
                             <li>雙向互動式操作 (LINE 按鈕直接回傳更新)</li>
-                            <li>高頻率即時監測與多系統異質整合</li>
-                            <li>跨系統無縫串接 (ERP / POS / Email)</li>
+                            <li>高頻率即時監測與多系統順暢串聯</li>
+                            <li>跨系統無縫對接 (收銀 / 訂單 / 郵件系統)</li>
                             <li>專屬高效能獨立主機代管，效能全開</li>
                             <li><strong>含每月 2 次免費微調與優化額度</strong></li>
                         </ul>
                     </div>
                     <a href="https://line.me/ti/p/~0983306877" id="btn-card-3" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
                 </div>
-
             </div>
         </section>
 
-        <!-- 區塊二：權責比較表 -->
         <section>
             <h2 class="section-title">省心代管 vs 一次性買斷 權責比較</h2>
             <div class="comparison-table-wrapper">
@@ -438,7 +416,7 @@
                     <thead>
                         <tr>
                             <th>比較項目</th>
-                            <th>訂閱式省心代管方案</th>
+                            <th>核心自動化訂閱方案</th>
                             <th>一次性專案買斷方案</th>
                         </tr>
                     </thead>
@@ -472,7 +450,6 @@
                 </table>
             </div>
 
-            <!-- 買斷條款說明卡片 -->
             <div class="notice-card">
                 <div class="notice-title">⚠️ 一次性買斷注意事項與商業規範</div>
                 <ul class="notice-list">
@@ -484,19 +461,18 @@
         </section>
     </div>
 
-    <!-- JavaScript：模式切換動態邏輯 -->
     <script>
         const data = {
             hosting: {
-                title: "訂閱式省心代管方案",
+                title: "核心自動化訂閱方案",
                 card1: {
                     price: `<div class="price-main">NT$ 3,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div><div class="price-sub">+ NT$ 599 / 月維護代管</div>`,
                     features: [
                         "1 套核心自動化工作流程",
-                        "庫存不足或關鍵數據 LINE 自動預警",
-                        "Google 試算表自動彙整與串接",
-                        "基礎 LINE 通知與 Bot 互動設定",
-                        "含伺服器穩定代管與 24 小時不斷線監控"
+                        "即時庫存或數據 LINE 自動預警",
+                        "自動彙整 Google 報表，告別手動複製貼上",
+                        "專人協助 LINE 通知推播設定",
+                        "含系統穩定代管與 24 小時不斷線監控"
                     ]
                 },
                 card2: {
@@ -513,8 +489,8 @@
                     price: `<div class="price-main">NT$ 18,999 <span style="font-size: 0.9rem; font-weight: normal;">/ 建置費</span></div><div class="price-sub">+ NT$ 1,499 / 月維護代管</div>`,
                     features: [
                         "雙向互動式操作 (LINE 按鈕直接回傳更新)",
-                        "高頻率即時監測與多系統異質整合",
-                        "跨系統無縫串接 (ERP / POS / Email)",
+                        "高頻率即時監測與多系統順暢串聯",
+                        "跨系統無縫對接 (收銀 / 訂單 / 郵件系統)",
                         "專屬高效能獨立主機代管，效能全開",
                         "<strong>含每月 2 次免費微調與優化額度</strong>"
                     ]
