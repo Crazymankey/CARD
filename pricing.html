@@ -54,7 +54,7 @@
         }
 
         section {
-            margin-bottom: 48px;
+            margin-bottom: 40px;
         }
 
         .section-title {
@@ -168,6 +168,7 @@
             color: var(--accent-color);
             font-weight: bold;
             margin-right: 8px;
+            flex-shrink: 0;
         }
 
         .btn {
@@ -192,6 +193,53 @@
         .btn:hover {
             background-color: var(--accent-hover);
             color: #fff;
+        }
+
+        /* ROI 對比區塊 */
+        .roi-banner {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.12) 0%, rgba(30, 41, 59, 0.9) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .roi-banner p {
+            color: var(--text-main);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .roi-highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* 方案邊界與服務說明 */
+        .terms-box {
+            background-color: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-top: 20px;
+            font-size: 0.88rem;
+            color: var(--text-sub);
+            line-height: 1.7;
+        }
+
+        .terms-box strong {
+            color: var(--text-main);
+        }
+
+        .terms-box ul {
+            list-style: none;
+            margin-top: 6px;
+        }
+
+        .terms-box li {
+            margin-bottom: 4px;
         }
 
         @media (min-width: 768px) {
@@ -254,7 +302,7 @@
                             <li>定時排程自動巡檢與數據同步</li>
                             <li>多頻道 / 指定群組智慧推播</li>
                             <li>每週系統自動備份與數據安全整理</li>
-                            <li><strong>含每月 1 次免費微調與優化額度</strong></li>
+                            <li><strong>含每月 1 次既有流程微調與優化額度</strong></li>
                         </ul>
                     </div>
                     <a href="https://line.me/ti/p/~0983306877" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
@@ -276,11 +324,28 @@
                             <li>高頻率即時監測與多系統順暢串聯</li>
                             <li>跨系統無縫對接 (收銀 / 訂單 / 郵件系統)</li>
                             <li>專屬高效能獨立主機代管，效能全開</li>
-                            <li><strong>含每月 2 次免費微調與優化額度</strong></li>
+                            <li><strong>含每月 2 次既有流程微調與優化額度</strong></li>
                         </ul>
                     </div>
                     <a href="https://line.me/ti/p/~0983306877" class="btn" target="_blank" rel="noopener">預約諮詢 (LINE)</a>
                 </div>
+            </div>
+
+            <!-- ROI 投資報酬率對比 -->
+            <div class="roi-banner">
+                <p>
+                    💡 <strong>算給你看：</strong>聘請一位行政人員每月基本薪資與勞健保至少花費 <strong>NT$ 32,000 元以上</strong>，還難免有人工看錯、漏單風險；<br>
+                    導入自動化系統首月僅需 <span class="roi-highlight">NT$ 4,598 元起</span>（次月起僅 NT$ 599/月），24 小時全年無休精準執行，<strong>每年直接為企業省下超過 35 萬元人事成本！</strong>
+                </p>
+            </div>
+
+            <!-- 方案服務邊界聲明 -->
+            <div class="terms-box">
+                <strong>服務與維護說明：</strong>
+                <ul>
+                    <li>• <strong>免費微調與優化額度定義：</strong>限既有自動化流程之「欄位名稱、通知文案、觸發條件或接收對象」調整；不含新增全新工作流程、更換第三方平台或跨系統重新串接（新需求將另行優惠報價）。</li>
+                    <li>• <strong>第三方平台費用：</strong>各方案費用包含系統建置與專屬雲端代管監控；若流程涉及 LINE 官方帳號付費推播訊息額度或第三方付費 API，依各平台官方費率實報實銷。</li>
+                </ul>
             </div>
         </section>
     </div>
